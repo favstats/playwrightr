@@ -321,7 +321,7 @@ set_input_files <- function(page_df, files, selector = NULL) {
   if (!is.null(selector)) {
     py_run(glue("{page_df$page_id}.set_input_files('{selector}', ['{files}'])"))
   } else if ("elem_id" %in% names(page_df)) {
-    py_run(glue("{page_df$elem_id}[[{page_df$id-1}}].set_input_files(['{files}'])"))
+    py_run(glue("{page_df$elem_id}[[{page_df$id-1}]].set_input_files(['{files}'])"))
   } else {
     stop("Error: An element must be located before using the set_input_files() method or a selector must be provided")
   }
